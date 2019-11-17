@@ -1,0 +1,103 @@
+Tutorial Overview
+This tutorial is divided into 7 parts; they are:
+
+Data Visualization
+Introduction to Matplotlib
+Line Plot
+Bar Chart
+Histogram Plot
+Box and Whisker Plot
+Scatter Plot
+Need help with Statistics for Machine Learning?
+Take my free 7-day email crash course now (with sample code).
+
+Statistics does indeed focus on quantitative descriptions and estimations of data. Data visualization provides an important suite of tools for gaining a qualitative understanding.
+
+This can be helpful when exploring and getting to know a dataset and can help with identifying patterns, corrupt data, outliers, and much more. With a little domain knowledge, data visualizations can be used to express and demonstrate key relationships in plots and charts that are more visceral to yourself and stakeholders than measures of association or significance.
+
+Data visualization and exploratory data analysis are whole fields themselves and I will recommend a deeper dive into some the books mentioned at the end. In this tutorial, let’s look at basic charts and plots you can use to better understand your data.
+
+There are five key plots that you need to know well for basic data visualization. They are:
+
+Line Plot
+Bar Chart
+Histogram Plot
+Box and Whisker Plot
+Scatter Plot
+With a knowledge of these plots, you can quickly get a qualitative understanding of most data that you come across.
+
+For the rest of this tutorial, we will take a closer look at each plot type.
+
+Introduction to Matplotlib
+There are many excellent plotting libraries in Python and I recommend exploring them in order to create presentable graphics.
+
+For quick and dirty plots intended for your own use, I recommend using the matplotlib library. It is the foundation for many other plotting libraries and plotting support in higher-level libraries such as Pandas.
+
+The matplotlib provides a context, one in which one or more plots can be drawn before the image is shown or saved to file. The context can be accessed via functions on pyplot. The context can be imported as follows:
+
+from matplotlib import pyplot
+There is some convention to import this context and name it plt; for example:
+
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+We will not use this convention, instead we will stick to the standard Python import convention.
+
+Charts and plots are made by making and calling on context; for example:
+
+pyplot.plot(...)
+Elements such as axis, labels, legends, and so on can be accessed and configured on this context as separate function calls.
+
+The drawings on the context can be shown in a new window by calling the show() function:
+
+# display the plot
+pyplot.show()
+
+# display the plot
+pyplot.show()
+Alternately, the drawings on the context can be saved to file, such as a PNG formatted image file. The savefig() function can be used to save images.
+
+pyplot.savefig('my_image.png')
+pyplot.savefig('my_image.png')
+This is the most basic crash course for using the matplotlib library.
+
+
+Line Plot
+A line plot is generally used to present observations collected at regular intervals.
+
+The x-axis represents the regular interval, such as time. The y-axis shows the observations, ordered by the x-axis and connected by a line.
+
+A line plot can be created by calling the plot() function and passing the x-axis data for the regular interval, and y-axis for the observations.
+
+# create line plot
+pyplot.plot(x, y)
+
+# create line plot
+pyplot.plot(x, y)
+Line plots are useful for presenting time series data as well as any sequence data where there is an ordering between observations.
+
+The example below creates a sequence of 100 floating point values as the x-axis and a sine wave as a function of the x-axis as the observations on the y-axis. The results are plotted as a line plot.
+
+# example of a line plot
+from numpy import sin
+from matplotlib import pyplot
+# consistent interval for x-axis
+x = [x*0.1 for x in range(100)]
+# function of x for y-axis
+y = sin(x)
+# create line plot
+pyplot.plot(x, y)
+# show line plot
+pyplot.show()
+
+# example of a line plot
+from numpy import sin
+from matplotlib import pyplot
+# consistent interval for x-axis
+x = [x*0.1 for x in range(100)]
+# function of x for y-axis
+y = sin(x)
+# create line plot
+pyplot.plot(x, y)
+# show line plot
+pyplot.show()
+Running the example creates a line plot showing the familiar sine wave pattern on the y-axis across the x-axis with a consistent interval between observations.
