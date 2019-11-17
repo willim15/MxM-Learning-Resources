@@ -1,0 +1,74 @@
+==========================
+ Data Visualization Notes
+==========================
+
+The goals of a visualization can vary:
+	exploration and understanding
+	presentation and explanation
+	engagement
+
+Four terms are in common use:
+	statistical graphics;
+	data visualization;
+	information visualization;
+	infographics.
+Some view these as interchangeable; others view them as a continuum.
+
+Visualizations can be static, possibly printed on paper; dynamic, involving animation or interactive features.
+
+data-driven project typically involves several cycles of
+
+importing, cleaning, and arranging the data
+exploring and understanding the data
+modeling the data to separate signal from noise
+exploring residuals and other aspects model/data mismatch
+possibly getting additional data
+Visualization can help at each stage an is often crucial for
+
+understanding the nature of the original data;
+understanding a complex fitted model;
+understanding departures from the model.
+
+==========================
+ 	R Visualization
+==========================
+
+R has several flexible static graphics system, including
+base graphics, or standard graphics, provided by the graphics package in the base R distribution
+trellis graphics, or lattice graphics, provided by the lattice package (one of the standard Recommended packages typically bundled with R)
+
+ggplot2 based on Wilkinson’s Grammar of Graphics and available from CRAN.
+
+Some interactive exploratory graphics packages include
+
+ggobi for exploring point clouts in higher dimensions
+rgl for for 3D rendering and viewing iplots, a Java-based dynamic graphics system for linked plots
+
+Static graphics output is produced by a device. These can be screen devices, like Windows, Quartz, X11 file devices, like pdf or png
+
+Devices are used through a device-independent layer implemented in the grDevices package.
+Base graphics is implemented directly using this layer. lattice and ggplot2 are built on an intermediate framework known as grid graphics and implemented in the grid package.
+Using grid features is occasionally useful for arranging multiple lattice or ggplot2 plots on a page.
+
+Some Task Levels for Visualization
+In evaluating visualization methods it can be useful to think about several levels of tasks that might be accomplished with a visualiation. A useful list, from highest to lowest level:
+
+Analyze: Identify patterns, distributions, presence of outliers or clusters, other interesting features.
+
+Search: Look up aspects of a feature known in advance or revealed by the visualiation.
+
+Query: Identify, compare features of individual items.
+
+Each higher level builds on the levels below.
+
+As we look at different methods it is useful to consider the tasks they are suited for,
+
+==========================
+ 	  Scalability
+==========================
+
+Data sets come in many different sizes and shapes.
+Some techniques work well for smaller data sets but deteriorate in effectiveness as size increases.
+Sometimes modifications are available that slow the deterioration.
+Other methods scale better, though usually at the expense of giving up some level of detail.
+As we look at different methods it is useful to consi
