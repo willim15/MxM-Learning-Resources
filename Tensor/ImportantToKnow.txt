@@ -1,0 +1,57 @@
+Formally, tensors are multilinear maps from vector spaces
+to the real numbers ( vector space, and dual space) 
+
+A scalar is a tensor 
+● A vector is a tensor 
+● A matrix is a tensor 
+● Common to have fixed basis, so a tensor can be
+represented as a multidimensional array of numbers.
+
+TensorFlow requires explicit evaluation
+All tensors we’ve used previously have been constant
+tensors, not variables.
+
+Linear regression example computed L2 loss for a linear
+regression system. How can we fit model to data?
+○ tf.train.Optimizer creates an optimizer.
+○ tf.train.Optimizer.minimize(loss, var_list)
+adds optimization operation to computation graph.
+● Automatic differentiation computes gradients without user
+input
+Inputting data with tf.convert_to_tensor() is
+convenient, but doesn’t scale.
+● Use tf.placeholder variables (dummy nodes that
+provide entry points for data to computational graph).
+● A feed_dict is a python dictionary mapping from tf.
+placeholder vars (or their names) to data (numpy arrays,
+lists, etc.).
+
+NUMPY
+In [23]: import numpy as np
+In [24]: a = np.zeros((2,2)); b = np.ones((2,2))
+In [25]: np.sum(b, axis=1)
+Out[25]: array([ 2., 2.])
+In [26]: a.shape
+Out[26]: (2, 2)
+In [27]: np.reshape(a, (1,4))
+Out[27]: array([[ 0., 0., 0., 0.]])
+
+TENSORFLOW
+In [31]: import tensorflow as tf
+In [32]: tf.InteractiveSession()
+In [33]: a = tf.zeros((2,2)); b = tf.ones((2,2))
+In [34]: tf.reduce_sum(b, reduction_indices=1).eval()
+Out[34]: array([ 2., 2.], dtype=float32)
+In [35]: a.get_shape()
+Out[35]: TensorShape([Dimension(2), Dimension(2)])
+In [36]: tf.reshape(a, (1, 4)).eval()
+Out[36]: array([[ 0., 0., 0., 0.]], dtype=float32)
+
+COMPARISONS
+a = np.zeros((2,2)); b = np.ones((2,2)) a = tf.zeros((2,2)), b = tf.ones((2,2))
+np.sum(b, axis=1) tf.reduce_sum(a,reduction_indices=[1])
+a.shape a.get_shape()
+np.reshape(a, (1,4)) tf.reshape(a, (1,4))
+b * 5 + 1 b * 5 + 1
+np.dot(a,b) tf.matmul(a, b)
+a[0,0], a[:,0], a[0,:] a[0,0], a[:,0], a[0,:]

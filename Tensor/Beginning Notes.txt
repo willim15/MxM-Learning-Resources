@@ -1,0 +1,62 @@
+https://www.tutorialspoint.com/tensorflow/tensorflow_tutorial.pdf
+
+Installation taking longer than expected
+
+SIMPLE HELLO WORLD
+>> activate tensorflow
+>> python (activating python shell)
+>> import tensorflow as tf
+>> hello = tf.constant(‘Hello, Tensorflow!’)
+>> sess = tf.Session()
+>> print(sess.run(hello))
+
+MACHINE LEARNING BROKEN DOWN INTO TWO DIFFERENT AVENUES:
+	SUPERVISED TRAINING AND UNSUPERVISED TRAINING
+
+Supervised:
+	Supervised learning or supervised training includes a procedure where the training set is given as input to the system wherein, each example is labeled with a desired output value. The training in this type is performed using minimization of a particular loss function, which represents the output error with respect to the desired output system.
+	(Training to recognize new photos)
+Unsupervised
+	In unsupervised learning or unsupervised training, include training examples, which are not labeled by the system to which class they belong. The system looks for the data, which share common characteristics, and changes them based on internal knowledge features. This type of learning algorithms are basically used in clustering problems.
+
+Need a good core understanding of Math
+	Vectors
+	Scalar
+	Matrix
+
+=======
+Tensors are used as the basic data structures in TensorFlow language. Tensors represent the connecting edges in any flow diagram called the Data Flow Graph. Tensors are defined as multidimensional array or list.
+Tensors are identified by the following three parameters:
+
+Rank
+Unit of dimensionality described within tensor is called rank. It identifies the number of dimensions of the tensor. A rank of a tensor can be described as the order or n-dimensions of a tensor defined.
+
+Shape
+The number of rows and columns together define the shape of Tensor.
+
+Type
+Type describes the data type assigned to Tensor’s elements.
+A user needs to consider the following activities for building a Tensor:
+Build an n-dimensional array
+Convert the n-dimensional array.
+
+>>> import numpy as np
+>>> tensor_2d=np.array([(1,2,3,4),(4,5,6,7),(8,9,10,11),(12,13,14,15)])
+>>> print(tensor_2d)
+[[ 1 2 3 4]
+[ 4 5 6 7]
+[ 8 9 10 11]
+
+=======
+
+How to implent CNN
+import tensorflow as tf
+import numpy as np
+from tensorflow.examples.tutorials.mnist import input_data
+
+def run_cnn():
+ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+ learning_rate = 0.0001
+ epochs = 10
+ batch_size = 50
+
